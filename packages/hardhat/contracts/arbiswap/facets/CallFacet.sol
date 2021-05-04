@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.2;
 
-import './ICallFacet.sol';
+import '../interfaces/ICall.sol';
 import '../libraries/ReentryProtection.sol';
 import '../libraries/CallProtection.sol';
 import '../libraries/LibCallStorage.sol';
 import '../../shared/libraries/LibDiamond.sol';
 
-contract CallFacet is ReentryProtection, ICallFacet {
+contract CallFacet is ReentryProtection, ICall {
 
   uint256 public constant MAX_CALLERS = 50;
 

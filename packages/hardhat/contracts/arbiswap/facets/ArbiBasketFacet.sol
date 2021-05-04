@@ -10,7 +10,7 @@ import '../interfaces/IBasketFacet.sol';
 import '../../shared/libraries/LibERC20Storage.sol';
 import '../../shared/libraries/LibERC20.sol';
 
-contract BasketFacet is ReentryProtection, CallProtection, IBasketFacet {
+contract ArbiBasketFacet is ReentryProtection, CallProtection, IBasketFacet {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 

@@ -14,18 +14,20 @@ struct ArbiSwap {
     IUniswapV1Factory factoryV1; 
     address factory;
     IWETH WETH;
+    string name;
+    string owner;
 }
 
 struct AppStorage {
-    // address contractOwner;
-    // uint96 totalSupply;
-    // string name;
-    // string symbol;
-    // string itemsBaseUri;
-    // bytes32 domainSeparator;
+    address contractOwner;
     address iuniswapV1Factory;
     address factory;
     address weth;
+    uint96 totalSupply;
+    string name;
+    string symbol;
+    string itemsBaseUri;
+    bytes32 domainSeparator;
 }
 
 library LibAppStorage {

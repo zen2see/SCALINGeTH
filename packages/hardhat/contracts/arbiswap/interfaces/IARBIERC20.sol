@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.2;
 
-interface IERC20Facet {
+interface IARBIERC20 {
     
     /**
         @notice Get the token name

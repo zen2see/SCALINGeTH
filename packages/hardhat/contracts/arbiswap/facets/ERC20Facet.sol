@@ -1,16 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.2;
 
-import './IERC20Facet.sol';
 import '../libraries/SafeMath.sol';
 import '../libraries/CallProtection.sol';
+import '../interfaces/IARBIERC20.sol';
 import '../../shared/interfaces/IERC20.sol';
 import '../../shared/libraries/LibDiamond.sol';
 import '../../shared/libraries/LibERC20Storage.sol';
 import "../../shared/libraries/LibERC20.sol";
 
 
-contract ERC20Facet is IERC20, IERC20Facet, CallProtection {
+contract ERC20Facet is IERC20, IARBIERC20, CallProtection {
   using SafeMath for uint256;
 
   function initialize(
