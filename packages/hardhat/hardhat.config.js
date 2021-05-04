@@ -26,7 +26,10 @@
    solidity: {
      compilers: [
          {
-             version: "0.8.3",
+             version: "0.8.0"
+         },
+         {
+             version: "0.8.2",
              settings: {
                  optimizer: {
                      enabled: true,
@@ -40,13 +43,18 @@
      kovan: {
        url: `https://kovan.infura.io/v3/${INFURA_PROJECT_ID}`,
        accounts: [`0x${KOVAN_PRIVATE_KEY}`]
+     },
+     arbkovan4: {
+      gasPrice: 0,
+      url: "https://kovan4.arbitrum.io/rpc",
+      
+      // hardhat: {
+      //   forking: {
+      //     url: `https://eth-mainnet.alchemyapi.io/v2/${FORKING_ID}`,
+      //     blockNumber: 11395144
+      //   }
+      // }
      }
-     // hardhat: {
-     //   forking: {
-     //     url: `https://eth-mainnet.alchemyapi.io/v2/${FORKING_ID}`,
-     //     blockNumber: 11395144
-     //   }
-     // }
    },
    watcher: {
        tasks: ["compile"],
