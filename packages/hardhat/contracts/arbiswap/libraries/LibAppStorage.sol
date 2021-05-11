@@ -1,34 +1,36 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.2;
 
-import '../interfaces/V1/IUniswapV1Factory.sol';
-import '../interfaces/V1/IUniswapV1Exchange.sol';
-import '../interfaces/IUniswapV2Router01.sol';
-import '../../shared/interfaces/IERC20.sol';
-import '../../shared/interfaces/IWETH.sol';
-import './UniswapV2Library.sol';
+import '../interfaces/IUniswapV3Factory.sol';
+import '../interfaces/IUniswapV3Pool.sol';
+import '../interfaces/IUniswapV3PoolDeployer.sol';
+import '../interfaces/callback/IUniswapV3SwapCallback.sol';
+import '../interfaces/IUniswapV2Router02.sol';
+import '../interfaces/IERC20Minimal.sol';
+import '../libraries/SafeCast.sol';
+import '../libraries/TickMath.sol';
 import {LibDiamond} from '../../shared/libraries/LibDiamond.sol';
 import {LibMeta} from '../../shared/libraries/LibMeta.sol';
 
-struct ArbiSwap {
-    IUniswapV1Factory factoryV1; 
-    address factory;
-    IWETH WETH;
-    string name;
-    string owner;
-}
+// struct ArbiSwap {
+//     address recipient;
+// }
 
 struct AppStorage {
     address contractOwner;
-    address iuniswapV1Factory;
-    address factory;
-    address weth;
-    uint96 totalSupply;
-    string name;
-    string symbol;
-    string itemsBaseUri;
-    bytes32 domainSeparator;
+    address childChainManager;
+    address recipient;
+    address poolInput;
+    address poolOutput;
+    uint256 amount0Out;
+    // address arbiV2Router;
+    address arbiDai;
 }
+
+// struct ArbiswapV2 {
+//     address absV2Router;
+//     address kovDai;
+// }
 
 library LibAppStorage {
     function diamondStorage() internal pure returns (AppStorage storage ds) {

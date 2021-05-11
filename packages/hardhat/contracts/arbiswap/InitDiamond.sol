@@ -2,7 +2,6 @@
 pragma solidity 0.8.2;
 
 /// Author: zen2see
-/// bscb20DiDiamond
 /// Uses Diamond standard 
 
 import {AppStorage} from "./libraries/LibAppStorage.sol";
@@ -17,20 +16,29 @@ contract InitDiamond {
     AppStorage internal s;
 
     struct Args {
+        // address recipient;
+        // address poolInput;
+        // address poolOutput;
+        // uint256 amount0Out;
         //address childChainManager;
-        string name;
-        string symbol;
+        //address absV2Router;
+        address arbiDai;
     }
 
     function init(Args memory _args) external {
+        // s.recipient = _args.recipient;
+        // s.poolInput = _args.poolInput;
+        // s.poolOutput = _args.poolOutput;
+        // s.amount0Out = _args.amount0Out;
+        //s.childChainManager = _args.childChainManager;
+        // s.arbiV2Router = _args.absV2Router;
+        s.arbiDai = _args.arbiDai;
+
         LibDiamond.DiamondStorage storage ds = LibDiamond.diamondStorage();
         // adding ERC165 data
         ds.supportedInterfaces[type(IERC165).interfaceId] = true;
         ds.supportedInterfaces[type(IDiamondCut).interfaceId] = true;
         ds.supportedInterfaces[type(IDiamondLoupe).interfaceId] = true;
-        ds.supportedInterfaces[type(IERC173).interfaceId] = true;
-        // s.childChainManager = _args.childChainManager;
-        s.name = _args.name;
-        s.symbol = _args.symbol;
+        ds.supportedInterfaces[type(IERC173).interfaceId] = true;      
     }
 }
